@@ -123,21 +123,12 @@ public class DataMunger {
 	 */
 	
 	public String getConditionsPartQuery(String queryString) {
-		String queryLower = queryString.toLowerCase();
-		if(queryString.contains("where")){
-			String[] stringWhere=queryLower.split(" where ");
-			if(stringWhere[1].contains("group by")){
-				String[] splitGroup = stringWhere[1].split(" group by");
-				return splitGroup[0];
-			}else if(queryString.contains("order by")) {
-				String[] splitOrder = stringWhere[1].split(" order by");
-				return splitOrder[0];
-			}else if(queryString.contains("group by") && queryString.contains("order by")){
-				String[] splitGroup = stringWhere[1].split(" group by");
-				return splitGroup[0];
-			}else{
-				return stringWhere[1];
-			}
+		if (queryString.contains("where")) {
+			String[] stringSplit = queryString.split("where");
+			String[] stringOrderBy= stringSplit[1].trim().split("order by");
+			String[] stringGroupBy = stringOrderBy[0].trim().split("group by");
+			String stringAns = stringGroupBy[0];
+			return stringAns.toLowerCase().trim();
 		}
 		return null;
 	}
@@ -159,50 +150,14 @@ public class DataMunger {
 
 	//season > 2014 and city ='Bangalore' or date > '31-12-2014'
 	public String[] getConditions(String queryString) {
-
-		String queryLower = getConditionsPartQuery(queryString).trim();
-		//System.out.println(queryLower);
-		ArrayList<String> list=new ArrayList<>();
-
-		if(queryLower.length()==0){
-			String[] answer_one = {null};
-			return answer_one;
+		queryString = getConditionsPartQuery(queryString.toLowerCase());
+		if (queryString == null) return null;
+		String[] queryAndOr = queryString.split(" and | or ");
+		for (int i = 0; i < queryAndOr.length; i++) {
+			String temp2 = queryAndOr[i].trim();
+			queryAndOr[i] = temp2;
 		}
-		if(!queryLower.contains("and") && !queryLower.contains("or")){
-			String[] answer_one = {queryLower};
-			return answer_one;
-		}
-
-		if(queryLower.contains("and") && queryLower.contains("or")){
-
-			String[] stringAnd=queryLower.split(" and ");
-			for(int i=0;i<stringAnd.length;i++){
-				if(stringAnd[i].contains("or")){
-					String[] stringOr=stringAnd[i].split(" or ");
-					for(int j=0;j<stringOr.length;j++){
-						list.add(stringOr[j]);
-					}
-				}else{
-					list.add(stringAnd[i]);
-				}
-			}
-			String[] stringAnswer=new String[list.size()];
-			for(int i=0;i< list.size();i++){
-				stringAnswer[i]=list.get(i);
-			}
-			return stringAnswer;
-
-		} else if(queryLower.contains("or")){
-			String[] stringOr=queryLower.split(" or ");
-			return stringOr;
-		} else if(queryLower.contains("and")){
-			String[] stringAnd=queryLower.split(" and ");
-			return stringAnd;
-		}
-
-	//	System.out.println(queryLower);
-		String[] stringAns = {queryLower};
-		return stringAns;
+		return queryAndOr;
 	}
 
 	/*
