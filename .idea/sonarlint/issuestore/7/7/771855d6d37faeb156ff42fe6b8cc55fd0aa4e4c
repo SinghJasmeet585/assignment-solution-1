@@ -1,0 +1,48 @@
+
+J
+java:S1128"4Remove this unused import 'java.lang.reflect.Array'.(‡¡É˜
+?
+java:S1125€"(Remove the literal "true" boolean value.(«¸ş•
+=
+java:S1168å"&Return an empty array instead of null.(¥¹ï
+_
+java:S1192O"IDefine a constant instead of duplicating this literal "order by" 5 times.(½ìõ‘
+C
+java:S2201n".The return value of "replaceAll" must be used.(Éš§R
+F
+java:S1481ó"/Remove this unused "queryLower" local variable.(—·ø
+=
+java:S1168¿"&Return an empty array instead of null.(¥¹ï
+x
+java:S1488*"cImmediately return this expression instead of assigning it to the temporary variable "splitString".(ª¯Ş&
+w
+java:S1488i"aImmediately return this expression instead of assigning it to the temporary variable "stringAns".(øñ¹¤
+H
+java:S1128"-Remove this unused import 'java.util.Locale'.(åğ×±ûÿÿÿÿ
+{
+java:S1488o"`Immediately return this expression instead of assigning it to the temporary variable "splitAns".(„®úÄüÿÿÿÿ
+T
+java:S18547">Remove this useless assignment to local variable "queryLower".(—·ø
+W	java:S125Ë"<This block of commented-out lines of code should be removed.(‡¬†Şûÿÿÿÿ
+b
+java:S1871R"LThis branch's code block is the same as the block for the branch on line 76.(Ù• 
+\
+java:S1192I"FDefine a constant instead of duplicating this literal "where" 3 times.(ÿ‹²
+=
+java:S1168Ò"&Return an empty array instead of null.(¥¹ï
+M
+java:S1066²"/Merge this if statement with the enclosing one.(ÊÍĞò8Ä‘Øşø.
+=
+java:S1168š"&Return an empty array instead of null.(à¿Õ 
+p
+java:S3776®"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÚÁÕ‡8Ä‘Øşø.
+]
+java:S5361n"HReplace this call to "replaceAll()" by a call to the "replace()" method.(Éš§R
+_
+java:S1192L"IDefine a constant instead of duplicating this literal "group by" 5 times.(°ÂŞ
+=
+java:S1168†"&Return an empty array instead of null.(¥¹ï
+U
+java:S1854ó">Remove this useless assignment to local variable "queryLower".(—·ø
+E
+java:S14817"/Remove this unused "queryLower" local variable.(—·ø
